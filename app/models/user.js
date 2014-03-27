@@ -7,6 +7,13 @@ var userSchema = mongoose.Schema({
     password: String
   });
 
+userSchema.post('create', function(){
+  console.log('new user!!!');
+});
+
+var User = mongoose.model('User', userSchema);
+
+
 userSchema.methods.comparePassword = function(attemptedPassword, callback) {
   bcrypt.compare(attemptedPassword, this.get('password'), function(err, isMatch) {
     callback(isMatch);
@@ -21,7 +28,7 @@ userSchema.methods.hashPassword =  function(){
     });
 };
 
-
+module.exports = User;
 
 
 

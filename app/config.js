@@ -11,9 +11,7 @@ db.once('open', function callback () {
   console.log('yay');
 });
 
-
-
-
+module.exports = db;
 
 
 
